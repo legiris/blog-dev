@@ -1,0 +1,4 @@
+pds_blog:
+    resource: "@pdsBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
