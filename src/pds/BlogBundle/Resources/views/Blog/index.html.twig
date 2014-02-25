@@ -1,4 +1,27 @@
 {% extends "pdsBlogBundle::layout.html.twig" %}
+{% block menu %}
+  <ul>
+    <li class="title">Nejnovější</li>
+    <li><a href="">Lorem Ipsum</a></li>
+    <li><a href="">De Finibus Bonorum...</a></li>
+  </ul>
+{% endblock %}
 {% block content %}
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+  <div class="article">
+    <h1>Lorem Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ... 
+          <a href="" title="">celý článek</a></p>
+    <p class="date">Přidáno: 19.10.2013 v 18:42</p>
+  </div>
+  <div class="article">
+    <h1>De Finibus Bonorum et Malorum</h1>
+    <p>Sed nibh velit, porttitor nec arcu at, porttitor bibendum nunc. Vivamus nec eros ac
+       odio porttitor rhoncus non eu massa. Pellentesque dignissim est et elit lobortis luctus.
+       Donec consequat nibh sit amet orci aliquam, sed elementum eros posuere. Morbi iaculis
+       fringilla nisl, mattis tempor tortor posuere in. Nulla et venenatis augue. Suspendisse
+       volutpat justo eu risus lobortis, quis lobortis nulla ornare. Aliquam erat volutpat.
+       Praesent ut nunc felis. Etiam tincidunt dolor ac nisl congue, eu molestie ante venenatis.
+       Curabitur at risus ... <a href="seznam.cz" title="">celý článek</a></p>
+    <p class="date">Přidáno: 17.10.2013 v 22:05</p>
+  </div>
 {% endblock %}

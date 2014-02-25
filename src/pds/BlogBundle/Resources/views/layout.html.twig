@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Můj blogísek{% endblock %}</title>
-        {% stylesheets '@pdsBlogBundle/Resources/public/css/blog.css' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Můj blogísek{% endblock %}</title>
+    {% stylesheets '@pdsBlogBundle/Resources/public/css/blog.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  </head>
+  <body>
+    <div id="page">
+      <div id="top-menu"></div>
+      <div id="left-page">
+        {% block menu %}
+        {% endblock %}
+      </div>
+      <div id="middle-page">  
         {% block content %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+      </div>    <!-- END middle-page -->
+    </div>
+  </body>
 </html>
