@@ -1,0 +1,189 @@
+/* 
+    Document   : blog
+    Created on : 17.10.2013, 17:46:42
+    Author     : Admin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* CSS reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* css */
+
+body {
+	background-color: whitesmoke;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+}
+
+a img {
+	border: 0;
+}
+
+#middle-page a:link {
+	color: #08C;
+}
+
+#middle-page a:visited {
+	color: #08C;
+}
+
+img.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#left-page a:link {
+	color: #08C;
+}
+
+#left-page a:visited {
+	color: #08C;
+}
+
+#page {
+	width: 50%;
+	min-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Palatino Linotype, Times, serif;
+	font-size: 100%;
+	text-align: justify;
+	margin-top: 20px;
+}
+
+#top-menu {
+	background-color: black;
+	height: 10px;
+}
+
+#middle-page {
+	float: right;
+	width: 74%;
+	padding: 5px 5px 0 5px;
+	/*margin: 5px 5px 5px 5px;*/
+	/*border: 1px solid green*/
+}
+
+#left-page {
+	float: left;
+	width: 24%;
+}
+
+#left-page li {
+	margin: 2px 2px 2px 2px;
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid black;
+}
+
+#left-page li.title {
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	margin: 10px 0 0 0;
+	background-color: black;
+	color: white;
+}
+
+.article {
+	padding: 10px 10px 0 10px;
+	margin: 10px 10px 10px 10px;
+	border-bottom: 1px solid black;
+}
+
+.article h1 {
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 120%;
+	padding: 0 0 5px 0;
+	text-align: left;
+}
+
+.article p {
+	margin: 10px 0 5px 0;
+}
+
+.article img {
+	border: 1px solid lime;
+	margin: 0 0 0 400px;
+}
+
+.article p.date {
+	font-size: 80%;
+	padding: 0 0 5px 0;
+	margin: 20px 0 5px 0;
+}
+
+#comments {
+	padding: 10px 10px 0 10px;
+	margin: 10px 10px 10px 10px;
+}
+
+#comments h3 {
+	font-weight: bold;
+	padding: 10px 0 20px 0;
+}
+
+span.right {
+	float: right;
+}
+
+td.top {
+	vertical-align: top;
+}
+
+form {
+	border-bottom: 1px solid black;
+	padding-bottom: 50px;
+}
