@@ -14,8 +14,11 @@ class BlogController extends Controller
     
     public function indexAction()
     {
+        $conn = $this->get('database_connection');
+        $rows = $conn->fetchAll('SELECT * FROM article');
+        
+        //var_dump($rows);
+        
         return $this->render('pdsBlogBundle:Blog:index.html.twig');
     }
-    
-    
 }
