@@ -6,19 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
 {
-    /**
-    public function indexAction($name)
-    {
-        return $this->render('pdsBlogBundle:Default:index.html.twig', array('name' => $name));
-    }*/
-    
     public function indexAction()
     {
-        $conn = $this->get('database_connection');
-        $rows = $conn->fetchAll('SELECT * FROM article');
-        
-        //var_dump($rows);
-        
-        return $this->render('pdsBlogBundle:Blog:index.html.twig');
+        return $this->render('pdsBlogBundle:Blog:index.html.twig', [
+            'articles' => $this->getDoctrine()
+                ->getRepository('pdsBlogBundle:Article')
+                ->findBy(
+                    [ ],
+                    [ 'id' => 'DESC' ]
+                ),
+            'news' => $this->getDoctrine()->getManager()->createQuery('
+                    SELECT a FROM pdsBlogBundle:Article a ORDER BY a.date DESC    
+                ')->setMaxResults(5)->getResult()
+            ])
+        ;
     }
 }
