@@ -1,0 +1,14 @@
+{% extends "pdsBlogBundle::layout.html.twig" %}
+
+{% block content %}
+<div class="article">
+  <h1>{{ article.getTitle }}</h1>
+  <p>{{ article.getText }}</p>
+  <p class="date">Přidáno: {{ article.getDate|date('d.m.Y | H:i') }}</p>
+</div>
+<div id="comments">
+  <h3>Přidat komentář</h3>
+  
+  <h3>Komentáře:</h3>
+</div>
+{% endblock %}

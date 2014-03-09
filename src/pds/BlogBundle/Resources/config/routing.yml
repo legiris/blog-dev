@@ -5,3 +5,7 @@
 pds_blog_homepage:
     pattern: /
     defaults: { _controller: pdsBlogBundle:Blog:index }
+    
+pds_blog_article:
+    path: /article/{id}
+    defaults: { _controller: pdsBlogBundle:Article:article }
