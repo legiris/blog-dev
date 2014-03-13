@@ -1,0 +1,9 @@
+
+{% block menu %}
+  <ul>
+    <li class="title">Nejnovější</li>
+    {% for new in news %}      
+    <li><a href="">{{ new.getTitle }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

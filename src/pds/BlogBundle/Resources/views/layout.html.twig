@@ -13,6 +13,7 @@
       <div id="top-menu"></div>
       <div id="left-page">
         {% block menu %}
+          {{ render(controller('pdsBlogBundle:Article:latestArticle', {'count': 5} )) }}
         {% endblock %}
       </div>
       <div id="middle-page">  

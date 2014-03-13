@@ -1,12 +1,5 @@
 {% extends "pdsBlogBundle::layout.html.twig" %}
-{% block menu %}
-  <ul>
-    <li class="title">Nejnovější</li>
-    {% for new in news %}      
-    <li><a href="">{{ new.getTitle }}</a></li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+
 {% block content %}
   {% for article in articles %}
     <div class="article">

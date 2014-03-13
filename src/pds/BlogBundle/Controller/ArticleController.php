@@ -14,4 +14,22 @@ class ArticleController extends Controller
                 ->findOneBy([ 'id' => $id ])
         ]);
     }
+    
+    public function latestArticleAction($count)
+    {
+        $articles = $this->getDoctrine()
+            ->getManager()
+            ->createQuery('
+                SELECT a FROM pdsBlogBundle:Article a ORDER BY a.date DESC
+            ')
+            ->setMaxResults($count)
+            ->getResult()
+        ;
+        
+        return $this->render('pdsBlogBundle:Article:latest.html.twig', [
+           'news' => $articles 
+        ]);
+    }
+    
+    
 }
