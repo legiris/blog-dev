@@ -4,7 +4,7 @@
 <div class="article">
   <h1>{{ article.getTitle }}</h1>
   <p>{{ article.getText }}</p>
-  <p class="date">Přidáno: {{ article.getDate|date('d.m.Y | H:i') }}</p>
+  <p class="date">Přidáno: {{ article.getDate|date('d.m.Y | H:i') }} <span class="back"><a href="{{ path('pds_blog_homepage') }}" title="Zpět">Zpět</a></span></p>
 </div>
 <div id="comments">
   <h3>Přidat komentář</h3>

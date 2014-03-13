@@ -4,7 +4,7 @@
   {% for article in articles %}
     <div class="article">
       <h1>{{ article.getTitle }}</h1>
-      <p>{{ article.getText|slice(0, 200) }} ... <a href="" title="">celý článek</a></p>
+      <p>{{ article.getText|slice(0, 200) }} ... <a href="{{ path('pds_blog_article', { 'id': article.getId }) }}" title="{{ article.getTitle }}">celý článek</a></p>
       <p class="date">Přidáno: {{ article.getDate|date('d.m.Y | H:i') }}</p>
     </div>
   {% endfor %}

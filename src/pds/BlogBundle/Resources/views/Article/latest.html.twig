@@ -3,7 +3,7 @@
   <ul>
     <li class="title">Nejnovější</li>
     {% for new in news %}      
-    <li><a href="">{{ new.getTitle }}</a></li>
+    <li><a href="{{ path('pds_blog_article', { 'id': new.getId }) }}">{{ new.getTitle }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}
