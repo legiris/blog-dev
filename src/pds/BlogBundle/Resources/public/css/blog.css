@@ -169,14 +169,39 @@ img.center {
     float: right;
 }
 
-#comments {
+#comment-block {
 	padding: 10px 10px 0 10px;
 	margin: 10px 10px 10px 10px;
 }
 
-#comments h3 {
+#comment-block h3 {
 	font-weight: bold;
-	padding: 10px 0 20px 0;
+	padding: 10px 0 10px 0;
+}
+
+#comment-block div.comment {
+    /*background-color: red;*/
+    padding: 0;
+    border-bottom: 1px solid lightgray;
+    margin: 0 0 8px 0;
+}
+
+#comment-block p.text {
+    padding: 10px 0 26px 0;
+}
+
+#comment-block span.name {
+    font-weight: bold;
+}
+
+#comment-block span.date {
+    font-size: 11px;
+    padding: 10px 0 0 0;
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 span.right {

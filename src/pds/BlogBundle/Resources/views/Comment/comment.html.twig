@@ -1,0 +1,15 @@
+{% block comment %}
+{% if comments is empty %}
+  <p>Dosud nebyl vložen žádný komentář.</p>
+{% else %}
+  {% for comment in comments %}
+    <div class="comment">
+      <p class="text">
+        <span class="name">{{ comment.getNickname }}</span>:<br />
+        {{ comment.getText }}<br />
+        <span class="date">{{ comment.getDate|date('d.m.Y | H:i:s') }}</span>
+      </p>
+    </div>
+  {% endfor %}
+{% endif %}
+{% endblock %}
