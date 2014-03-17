@@ -8,7 +8,8 @@
 </div>
 <div id="comment-block">
   <h3>Přidat komentář</h3>
-  
+  {#% include 'pdsBlogBundle:Comment:addForm.html.twig' %#}
+    {{ render(controller('pdsBlogBundle:Comment:addForm')) }}
   <h3>Komentáře:</h3>
   {% block comment %}
     {{ render(controller('pdsBlogBundle:Comment:fetchAllByArticleId', { 'articleId': article.getId } )) }}

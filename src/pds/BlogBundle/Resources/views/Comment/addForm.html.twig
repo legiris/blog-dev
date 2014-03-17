@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<table>
+    <tr><td class="w80"><label for="form_nickname" class="required">Autor:</label></td>
+        <td>{{ form_widget(form.nickname, { 'attr': { 'class': 'form-field' } }) }}</td>
+    </tr>
+    <tr><td class="w80 top"><label for="form_text" class="required">Komentář:</label></td>
+        <td>{{ form_widget(form.text, { 'attr': { 'class': 'form-field' } }) }}</td>
+    </tr>
+</table>    
+{{ form_end(form) }}
+    
