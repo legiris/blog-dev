@@ -1,4 +1,6 @@
-{{ form_start(form) }}
+{#{ form_start(form) }#}
+<form name="form" method="POST" action="">
+{{ form_errors(form) }}
 <table>
     <tr><td class="w80"><label for="form_nickname" class="required">Autor:</label></td>
         <td>{{ form_widget(form.nickname, { 'attr': { 'class': 'form-field' } }) }}</td>
@@ -6,6 +8,8 @@
     <tr><td class="w80 top"><label for="form_text" class="required">Komentář:</label></td>
         <td>{{ form_widget(form.text, { 'attr': { 'class': 'form-field' } }) }}</td>
     </tr>
+    <tr><td>{{ form_widget(form.Vložit | raw) }}</td><td></td></tr>
 </table>    
-{{ form_end(form) }}
+</form>
+{#{ form_end(form) }#}
     
