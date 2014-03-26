@@ -5,7 +5,7 @@
   {% for comment in comments %}
     <div class="comment">
       <p class="text">
-        <span class="name">{{ comment.getNickname }}</span>:<br />
+        <span class="name">{{ comment.getLogin }}</span>:<br />
         {{ comment.getText }}<br />
         <span class="date">{{ comment.getDate|date('d.m.Y | H:i:s') }}</span>
       </p>

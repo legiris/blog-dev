@@ -23,9 +23,9 @@ class Comment
     protected $text;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=32)
      */
-    protected $nickname;
+    protected $login;
 
     /**
      * @ORM\Column(type="datetime")
@@ -50,9 +50,9 @@ class Comment
         return $this->text;
     }
 
-    public function getNickname()
+    public function getLogin()
     {
-        return $this->nickname;
+        return $this->login;
     }
 
     public function getDate()
@@ -75,9 +75,9 @@ class Comment
         $this->text = $text;
     }
 
-    public function setNickname($nickname)
+    public function setLogin($login)
     {
-        $this->nickname = $nickname;
+        $this->login = $login;
     }
 
     public function setDate($date)
