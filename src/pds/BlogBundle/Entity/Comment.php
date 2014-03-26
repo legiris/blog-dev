@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="comment")
+ * @ORM\HasLifecycleCallbacks
  */
 class Comment
 {
@@ -31,6 +32,14 @@ class Comment
      * @ORM\Column(type="datetime")
      */
     protected $date;
+    
+    /**
+     * @ORM\PrePersist
+     */
+    function onPrePersist()
+    {
+        $this->date = new \DateTime('now');
+    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Article")

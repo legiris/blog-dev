@@ -216,3 +216,16 @@ form {
 	border-bottom: 1px solid black;
 	padding-bottom: 50px;
 }
+
+.form-field {
+    background-color: whitesmoke;
+    border: 1px solid black;
+}
+
+table td.w80 {
+    width: 80px;
+}
+
+table td.top {
+    vertical-align: top;
+}
