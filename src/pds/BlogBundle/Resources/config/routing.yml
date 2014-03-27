@@ -9,3 +9,7 @@ pds_blog_homepage:
 pds_blog_article:
     path: /article/{id}
     defaults: { _controller: pdsBlogBundle:Article:article }
+    
+pds_blog_comment_add:
+    path: /comment/add
+    defaults: { _controller: pdsBlogBundle:Comment:add }

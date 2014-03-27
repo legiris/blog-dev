@@ -27,24 +27,28 @@ class CommentController extends Controller
 //        ]);
 //    }
     
-    public function addFormAction(Request $request)
+    public function addAction(Request $request)
     {
         $user = new User();
         
         $form = $this->createFormBuilder($user)
+            ->setAction($this->generateUrl('pds_blog_comment_add'))
+            ->setMethod('POST')
             ->add('login')
-            ->add('Vložit', 'submit')
+            ->add('add', 'submit')
             ->getForm()
         ;
 
         $form->handleRequest($request);
-        
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
             
-            return $this->redirect('pds_blog_homepage');
+            // TODO redirect pds_blog_article - get ID
+            return $this->redirect($this->generateUrl('pds_blog_homepage'));
+            //return new \Symfony\Component\HttpFoundation\Response('Success');
         }
         
         return $this->render('pdsBlogBundle:Comment:addForm.html.twig', [
