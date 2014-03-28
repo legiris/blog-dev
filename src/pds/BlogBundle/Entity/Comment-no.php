@@ -7,9 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="comment")
- * @ORM\HasLifecycleCallbacks
  */
-class Comment
+class CommentNo
 {
     /**
      * @ORM\Id
@@ -32,16 +31,6 @@ class Comment
      * @ORM\Column(type="datetime")
      */
     protected $date;
-    
-    /* lifecycles */
-    
-    /**
-     * @ORM\PrePersist
-     */
-    function onPrePersist()
-    {
-        $this->date = new \DateTime('now');
-    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Article")
@@ -50,48 +39,52 @@ class Comment
      */
     protected $articleId;
 
-    /* Properties */
 
     public function getId()
     {
         return $this->id;
     }
-    
+
     public function getText()
     {
         return $this->text;
-    }
-    
-    public function setText($text)
-    {
-        $this->text = $text;
     }
 
     public function getLogin()
     {
         return $this->login;
     }
-    
-    public function setLogin($login)
-    {
-        $this->login = $login;
-    }
 
     public function getDate()
     {
         return $this->date;
-    }
-    
-    public function setDate($date)
-    {
-        $this->date = $date;
     }
 
     public function getArticleId()
     {
         return $this->articleId;
     }
-    
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    public function setLogin($login)
+    {
+        $this->login = $login;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
     public function setArticleId($articleId)
     {
         $this->articleId = $articleId;

@@ -57,7 +57,7 @@ INSERT INTO `article` (`id`, `title`, `text`, `date`) VALUES
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` varchar(2500) COLLATE utf8_czech_ci NOT NULL,
-  `nickname` varchar(30) COLLATE utf8_czech_ci NOT NULL,
+  `login` varchar(32) COLLATE utf8_czech_ci NOT NULL,
   `date` datetime NOT NULL,
   `article_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- Vypisuji data pro tabulku `comment`
 --
 
-INSERT INTO `comment` (`id`, `text`, `nickname`, `date`, `article_id`) VALUES
+INSERT INTO `comment` (`id`, `text`, `login`, `date`, `article_id`) VALUES
 (1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ligula lorem, porttitor a dignissim eu, mollis ut orci. Pellentesque hendrerit nulla at elit auctor, sed imperdiet elit commodo.', 'Seeker', '2013-11-11 10:12:31', 8),
 (2, 'Praesent sed gravida nisl, vitae pretium velit. Donec sed augue purus. Phasellus condimentum tempor nisl, at auctor metus semper non. Cras non elit eu lectus molestie dignissim non ut nulla. Quisque aliquam justo a imperdiet imperdiet.', 'Nikolaos Dimopoulos', '2013-11-13 14:18:39', 8),
 (3, 'Fusce interdum tincidunt blandit. Nunc interdum ornare viverra.', 'Sgoettschkes', '2013-11-13 21:06:04', 8);
