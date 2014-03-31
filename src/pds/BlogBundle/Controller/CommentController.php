@@ -9,34 +9,15 @@ use pds\BlogBundle\Entity\Comment;
 
 class CommentController extends Controller
 {
-    
-    protected $articleId;
-    
-    public function getArticleId()
+    public function addAction($articleId, Request $request)
     {
-        return $this->articleId;
-    }
-    
-    public function setArticleId($articleId)
-    {
-        $this->articleId = $articleId;
-    }
-    
-    
-
-    public function addAction(Request $request)
-    {
-        $this->articleId = $request->get('articleId');        
-        
-        $this->setArticleId($request->get('articleId'));
-        
-        var_dump($this->articleId);
-        var_dump($this->getArticleId());
+        //$articleId = $request->get('articleId');
         
         $comment = new Comment();
+        $comment->setArticleId($articleId);
         
         $form = $this->createFormBuilder($comment)
-            ->setAction($this->generateUrl('pds_blog_comment_add'))
+            ->setAction($this->generateUrl('pds_blog_comment_add', [ 'articleId' => $comment->getArticleId() ] ))
             ->setMethod('POST')
             ->add('login')
             ->add('text', 'textarea', [
@@ -48,24 +29,16 @@ class CommentController extends Controller
         
         $form->handleRequest($request);
         
-        var_dump($this->articleId);
-        
         if ($form->isValid()) {
-            
-            //var_dump($request); exit();
-            //var_dump($this->articleId); 
-            var_dump($this->getArticleId()); exit;
-            
-            $comment->setArticleId($this->articleId);
-            
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();
             
-            return $this->redirect($this->generateUrl('pds_blog_homepage'));
+            return $this->redirect($this->generateUrl('pds_blog_article', [ 'id' => $articleId ] ));
         }
         
         return $this->render('pdsBlogBundle:Comment:add.html.twig', [
+            'comment' => $comment,
             'form' => $form->createView()
         ]);
     }

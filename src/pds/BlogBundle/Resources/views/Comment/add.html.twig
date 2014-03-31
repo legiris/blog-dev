@@ -1,7 +1,11 @@
 {{ form(form) }}
 
 {#
-<form name="form" method="POST" action="">
+<form name="form" method="POST" action="{{ path('pds_blog_comment_add', { 'articleId': comment.getArticleId } ) }}">
+{{ form_widget(form) }}
+#}
+
+{#
 <table>
     <tr><td class="w80"><label for="form_login" class="required">Login:</label></td>
         <td>{{ form_widget(form.login, { 'attr': { 'class': 'form-field' } }) }}</td>
@@ -10,5 +14,6 @@
         <td></td>
     </tr>
 </table>    
-</form>
 #}
+    
+{# </form> #}

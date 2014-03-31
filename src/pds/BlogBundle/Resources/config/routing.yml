@@ -11,5 +11,8 @@ pds_blog_article:
     defaults: { _controller: pdsBlogBundle:Article:article }
     
 pds_blog_comment_add:
-    path: /comment/add
+    pattern: /article/{articleId}/add
     defaults: { _controller: pdsBlogBundle:Comment:add }
+    requirements:
+        _method: POST
+        articleId: \d+
