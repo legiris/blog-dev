@@ -30,6 +30,4 @@ class ArticleController extends Controller
            'news' => $articles 
         ]);
     }
-    
-    
 }

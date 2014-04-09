@@ -15,13 +15,6 @@ class BlogController extends Controller
                     [ ],
                     [ 'id' => 'DESC' ]
                 ),
-//            'news' => $this->getDoctrine()
-//                ->getManager()
-//                ->createQuery('
-//                    SELECT a FROM pdsBlogBundle:Article a ORDER BY a.date DESC    
-//                ')
-//                ->setMaxResults(5)
-//                ->getResult()
             ])
         ;
     }

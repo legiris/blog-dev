@@ -57,6 +57,12 @@ class Comment
         return $this->id;
     }
     
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    
     public function getText()
     {
         return $this->text;

@@ -5,7 +5,6 @@ namespace pds\BlogBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use pds\BlogBundle\Entity\Comment;
-//use pds\BlogBundle\Entity\User;
 
 class CommentController extends Controller
 {
@@ -15,6 +14,7 @@ class CommentController extends Controller
         
         $comment = new Comment();
         $comment->setArticleId($articleId);
+        $comment->setId(1);
         
         $form = $this->createFormBuilder($comment)
             ->setAction($this->generateUrl('pds_blog_comment_add', [ 'articleId' => $comment->getArticleId() ] ))
@@ -30,10 +30,15 @@ class CommentController extends Controller
         $form->handleRequest($request);
         
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
-            
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success', 'Komentář byl uložen.');
+            } catch (\Doctrine\DBAL\DBALException $e) {
+                $this->get('session')->getFlashBag()->add('error', 'Komentář se nepodařilo uložit.');
+            }
+
             return $this->redirect($this->generateUrl('pds_blog_article', [ 'id' => $articleId ] ));
         }
         
@@ -42,36 +47,6 @@ class CommentController extends Controller
             'form' => $form->createView()
         ]);
     }
-    
-//    public function adduAction(Request $request)
-//    {
-//        $user = new User();
-//        
-//        $form = $this->createFormBuilder($user)
-//            ->setAction($this->generateUrl('pds_blog_comment_add'))
-//            ->setMethod('POST')
-//            ->add('login')
-//            ->add('add', 'submit')
-//            ->getForm()
-//        ;
-//
-//        $form->handleRequest($request);
-//
-//        if ($form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($user);
-//            $em->flush();
-//            
-//            // TODO redirect pds_blog_article - get ID
-//            return $this->redirect($this->generateUrl('pds_blog_homepage'));
-//            //return new \Symfony\Component\HttpFoundation\Response('Success');
-//        }
-//        
-//        return $this->render('pdsBlogBundle:Comment:add.html.twig', [
-//            'form' => $form->createView(),
-//        ]);
-//    }
-
     
     public function fetchAllByArticleIdAction($articleId)
     {

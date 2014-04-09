@@ -1,19 +1,18 @@
-{{ form(form) }}
-
-{#
 <form name="form" method="POST" action="{{ path('pds_blog_comment_add', { 'articleId': comment.getArticleId } ) }}">
-{{ form_widget(form) }}
-#}
-
-{#
-<table>
-    <tr><td class="w80"><label for="form_login" class="required">Login:</label></td>
-        <td>{{ form_widget(form.login, { 'attr': { 'class': 'form-field' } }) }}</td>
+  {{ form_errors(form) }}
+  <table>
+    <tr>
+      <td class="w80"><label for="form_login" class="required">Login:</label></td>
+      <td>{{ form_widget(form.login, { 'attr': { 'class': 'form-field' } }) }}</td>
     </tr>
-    <tr><td><input type="submit" id="form_Vložit" name="form[Vložit]" value="Vložit" /></td>
-        <td></td>
+    <tr>
+      <td class="top">Text:</td>
+      <td>{{ form_widget(form.text, { 'attr': { 'class': 'form-field' } }) }}</td>
     </tr>
-</table>    
-#}
-    
-{# </form> #}
+    <tr>
+      <td><input type="submit" id="form_Vložit" name="form[Vložit]" value="Vložit" /></td>
+      <td></td>
+    </tr>
+  </table>
+  {{ form_widget(form._token) }}
+</form>
